@@ -1,5 +1,3 @@
-## JavaScriptを学習するのに役立つサイト、環境とプレイグラウンド、演習問題
-
 ### [JavaScript - MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/JavaScript)
 * チュートリアル:
 ** 初級編
@@ -51,6 +49,60 @@ Chromeですと、「表示」→「開発/管理」→「JavaScriptコンソー
 * [JS Bin](https://jsbin.com)
 
 * [Javascript Playground -PLAYCODE- ](https://playcode.io/)
+
+
+---
+### [VS-CodeであっさりJavaScript](https://zenn.dev/sdkfz181tiger/articles/e95252e9e98615)
+1. 動作確認するための拡張機能(Live Server)のインストール
+  検索窓に"Live Server"と入力します。
+  すると、画像の様に"Live Server"が表示されます。
+  この拡張機能は、作ったコードをブラウザで実行させるための機能です。
+
+1. プロジェクトを作ろう
+  さっそく、"プロジェクト"を作ってみましょう。
+  "プロジェクト"と言いますが、その実体は空っぽの"フォルダ"です。
+  次の手順に従って、プロジェクトを作ります。
+  VS-Codeの左側にあるメニューにある、1番上のボタンを押し、"Open Folder"ボタンをクリックします。
+  ダイアログで"New Folder"(新しいフォルダ)を選択します。
+  ここでは、フォルダ名を"MyProject01"としました。
+  新しいフォルダ"MyProject01"を"Open"します。
+  これでプロジェクトの完成です。
+
+1. HTMLファイルを作ってみよう
+  プロジェクトは完成しましたが、初期状態なので中には何も入っていません。
+  次は、HTMLファイルを作ります。
+  プロジェクト名の上にマウスカーソルを合わせ、"New File"ボタンをクリックします。
+  ファイル名は、"index.html"としましょう。
+  ファイルが出来ました。
+  HTMLは、このファイルに記述していきます。
+```
+index.html
+<html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Hello HTML!!</h1>
+</body>
+</html>
+```
+
+1. ブラウザで動かしてみよう
+  このHTMLファイルは、簡単にブラウザで動作確認をする事ができます。
+  編集しているhtmlファイルの上で、
+  右クリック -> "Open with Live Server"をクリックします。
+  すると、自動でブラウザが立ち上がります。
+  ブラウザに、"Hello HTML!!"と表示されている事を確認できます。
+
+1. コンソール画面を確認する
+"console.log();"は、コンソール画面に文字を出力する命令です。
+"コンソール画面"とは、ブラウザに備わった特別な画面であり、
+主に、プログラムの動作確認や、エラーの確認をする時に利用します。
+次の手順に従って、コンソール画面を開いてみましょう。
+GoogleChromeブラウザの、右上にあるメニューボタンから、
+"More Tools" -> "Developer Tools"の順番にクリックしていきます。
+"Console"のタブをクリックすると、コンソール画面が現れます。
+"Hello JavaScript!!"の文字が出力されているのを確認する事ができます。
 
 ---
 ### [JavaScript入門](https://www.javadrive.jp/javascript/)
