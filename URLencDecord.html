@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<META charset="UTF-8">
+</head>
+
+<body>
+<h1>  URL エンコード・デコード </h1>
+
+<hr>
+<h3>デコード </h3>
+<h5>例) "%E3%82%A2"→"ア"</h5>
+<pre>
+  上の入力欄に％混じりのＵＲＬを入力し、
+  「デコード」ボタンを押すと、
+  下の出力欄に日本語混じりのＵＲＬが表示されますので、
+  それをコピペして使ってください。
+</pre>
+<div class="decodearea">
+  <form id="areaB" name="areaB" action="">
+        <textarea id="formInputB" rows="4" cols="40"></textarea><br>
+        <input type="button" value="デコード" onclick="DecodeStringToUri();" />
+  </form>
+  <textarea id="decOutputB" rows="4" cols="40"></textarea><br>
+</div>
+<script>
+<!--
+  function DecodeStringToUri() {
+                                var DecStr = decodeURI( document.getElementById("formInputB").value );
+                                document.getElementById("decOutputB").innerHTML = DecStr;
+                                }
+// -->
+</script>
+
+<hr>
+<h3>エンコード</h3>
+<h5>例) "ア"→"%E3%82%A2"</h5>
+<pre>
+  上の入力欄に日本語混じりのＵＲＬを入力し、
+  「デコード」ボタンを押すと、
+  下の出力欄に％混じりのＵＲＬが表示されますので、
+  それをコピペして使ってください。
+</pre>
+<div class="encodearea">
+  <form id="areaA" name="areaA" action="">
+      <textarea id="formInputA" rows="4" cols="40"></textarea><br>
+      <input type="button" value="エンコード" onclick="EncodeStringToUri();" />
+  </form>
+  <textarea id="encOutputA" rows="4" cols="40"></textarea><br>
+</div>
+
+<script>
+<!--
+  function EncodeStringToUri() {
+                                var EncStr = encodeURI( document.getElementById("formInputA").value );
+                                document.getElementById("encOutputA").innerHTML = EncStr;
+                              }
+// -->
+</script>
+
+<hr>
+<h3>  参考 </h3>
+
+<p>
+  <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/encodeURI">MDN Web Docs ＞ 開発者向けのウェブ技術 ＞ JavaScript ＞ JavaScript リファレンス ＞ 標準組込みオブジェクト ＞ encodeURI()</a>
+  <br>
+</p>
+
+<p>
+  <a href="https://www.nishishi.com/javascript-tips/encodeuri.html">パーセント記号を使ったURL(URI)エンコード・デコード方法</a>
+  <br>
+</p>
+
+<p>
+  <a href="https://tech-unlimited.com/urlencode.html">TECH-UNLIMITED ＞ URLエンコード・デコード</a>
+  <br>
+</p>
+
+</body>
+</html>
