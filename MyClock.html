@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>MyClock4iPad</title>
+  <!--
+	2021/10/21 v1 iPadに時刻と日付を表示する
+  -->
+<meta name="viewport" content="width=device-width,
+ initial-scale=1.0,user-scalable=yes" />
+
+<!-- CSS記述開始 -->
+
+ <style type="text/css">
+
+	/*--------------------------------------------------*/
+	  ブロックごとの大きさの定義
+		(レイアウト定義なので、本来は外部CSSファイルとすべき)
+	/*--------------------------------------------------*/
+	
+	/*
+	 ボディと水平線の定義
+	*/
+	
+	body {
+		margin: 0;
+		padding: 0;
+		font-size: 100%;
+		font-family: Arial, sans-serif;
+		line-height: 100%;
+	}
+	
+	hr {
+		margin: 0;
+	}
+	
+	/* Container ---------------
+	 コンテナ（大外枠）の大きさ定義
+	 ---------------------------*/
+	
+	#container {
+	width: 1024px; /* 100%*/
+	height: 768px; /* 100% */
+	margin: 0 auto;
+	}
+	
+	
+	/* Header ---------------
+	 ヘッダー（上見出し）の大きさ定義
+	 ---------------------------*/
+	#header {
+	margin: 0 0 5px;
+	padding: 20px 20px 15px;
+	}
+	#header h1 {
+	margin: 0 0 10px;
+	font-size: 150%;
+	}
+	#header h2 {
+	margin: 0;
+	margin: 0 0 20px;
+	font-size: 100%;
+	}
+	#header h3 {
+	margin: 0;
+	font-size: 100%;
+	}
+	
+
+	/* Main ---------------------
+	 メイン（画面中央）の大きさ定義
+	 ---------------------------*/
+	#main {
+	float: right;
+	width: 100%; /*510px;*/
+	}
+	#main div.section {
+	height: 100%; /* 500px; */
+	margin: 0 15px;
+	padding: 15px 10px 10px;
+	overflow: auto;
+	}
+	#main div.section dd {
+	margin: 0 0 5px;
+	line-height: 100%;
+	}
+	#main div.section dd abbr {
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px #c0c0c0 solid;
+	font-family: monospace;
+	}
+	#main div.section dd code {
+	margin: 0 10px 0 5px;
+	font-family: monospace;
+	}
+	#main div.section div.ads {
+	margin: 0 0 20px;
+	}
+
+	/* Main ---------------------
+	 メイン（画面中央）の部分ごとの定義
+	 ---------------------------*/
+	#view_clock {
+	font-size: 1000%;
+	}
+	#view_today {
+	font-size: 400%;
+	}
+
+	/*--------------------------------------------------*/
+	  ブロックごとの文字色と背景色の定義
+	/*--------------------------------------------------*/
+	
+	/* B: 全体 */
+	body,
+	#main dd.bgB abbr {
+	background-color: #305ea9; /* 全体の背景色 */
+	color: #ffffff; /* 全体の文字色 */
+	}
+	
+	/* H: ヘッダ */
+	#header,
+	#main dd.bgH abbr {
+	background-color: #5cbfd8; /* ヘッダの背景色 */
+	color: #ffffff; /* ヘッダの文字色 */
+	}
+	
+	/* C: 中央カラム */
+	#main div.section,
+	#main dd.bgC abbr {
+	background-color: #ffffff; /* 中央カラムの背景色 */
+	color: #000000; /* 中央カラムの文字色 */
+	}
+	#main div.section a {
+	color: #0000ff; /* リンクテキストの文字色 */
+	}
+
+	/* 画像の大きさをスマホの画面サイズに合わせる */
+	img {
+	max-width:100%;
+	height:auto;
+	}
+	
+	</style>
+	
+		<!-- CSS記述終了 -->
+
+</head>
+
+<body>
+
+	<!-- コンテナ開始 -->
+	<div id="container">
+
+		<!-- Header Start -->
+		<div id="header">
+
+			<h3>MyClock for iPad Ver2.0</h3>
+
+		</div>
+		<!-- Header End -->
+
+		<hr> <!-- ----------------------------------------------- -->
+
+			<!-- メインカラム開始 -->
+			<div id="main">
+
+				<div class="section">
+
+					<!-- 
+						コンテンツは字切れを起こすので #main div.section 内に記載すること。
+						参考　http://www.shurey.com/js/samples/2_msg10.html
+						参考　https://tagamidaiki.com/javascript-0-chink/
+					-->
+
+					<span id="view_clock"></span>
+
+					<script type="text/javascript">
+					timerID = setInterval('clock()',500); //0.5秒毎にclock()を実行
+					
+					function clock() {
+						document.getElementById("view_clock").innerHTML = getNow();
+					}
+
+					// 1桁の数字を0埋めで2桁にする
+					var toDoubleDigits = function(num) {
+					num += "";
+					if (num.length === 1) {
+						num = "0" + num;
+					}
+					return num;     
+					};
+
+					function getNow() {
+						var now = new Date();
+						var hour = toDoubleDigits(now.getHours());
+						var min = toDoubleDigits(now.getMinutes());
+						var sec = toDoubleDigits(now.getSeconds());
+					
+						//出力用
+						var s1 = hour + ":" + min + "." + sec; 
+						return s1;
+					}
+					</script>
+
+					<hr>
+
+					<span id="view_today"></span>
+
+					<script type="text/javascript">
+					document.getElementById("view_today").innerHTML = getToday();
+
+					// 1桁の数字を0埋めで2桁にする
+					var toDoubleDigits = function(num) {
+					num += "";
+					if (num.length === 1) {
+						num = "0" + num;
+					}
+					return num;     
+					};
+					
+					function getToday() {
+						var now = new Date();
+						var year = now.getFullYear();
+						var mon = toDoubleDigits(now.getMonth()+1); //１を足すこと
+						var day = toDoubleDigits(now.getDate());
+						var you = now.getDay(); //曜日(0～6=日～土)
+
+						//曜日の選択肢
+						var youbi = new Array("日","月","火","水","木","金","土");
+						//出力用
+						var s2 = year + "年" + mon + "月" + day + "日 (" + youbi[you] + ")";
+						return s2;
+					}
+					</script>
+			</div>
+			<!-- メインカラム終了 -->
+
+
+	</div>
+	<!-- コンテナ終了 -->
+
+
+</body>
+</html>
